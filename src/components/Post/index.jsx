@@ -1,17 +1,17 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Clear';
-import EditIcon from '@mui/icons-material/Edit';
-import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
+import IconButton from "@mui/material/IconButton";
+import DeleteIcon from "@mui/icons-material/Clear";
+import EditIcon from "@mui/icons-material/Edit";
+import EyeIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import CommentIcon from "@mui/icons-material/ChatBubbleOutlineOutlined";
 
-import styles from './Post.module.scss';
-import { UserInfo } from '../UserInfo';
-import { PostSkeleton } from './Skeleton';
-import { fetchRemovePost } from '../../redux/slices/posts';
+import styles from "./Post.module.scss";
+import { UserInfo } from "../UserInfo";
+import { PostSkeleton } from "./Skeleton";
+import { fetchRemovePost } from "../../redux/slices/posts";
 
 export const Post = ({
   _id,
@@ -33,7 +33,8 @@ export const Post = ({
   }
 
   const onClickRemove = () => {
-    if (window.confirm('Вы действительно хотите удалить статью?')) {
+    if (window.confirm("Вы действительно хотите удалить статью?")) {
+      // eslint-disable-next-line no-undef
       dispatch(fetchRemovePost(id));
     }
   };
@@ -42,6 +43,7 @@ export const Post = ({
     <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
       {isEditable && (
         <div className={styles.editButtons}>
+          {/* eslint-disable-next-line no-undef */}
           <Link to={`/posts/${id}/edit`}>
             <IconButton color="primary">
               <EditIcon />
@@ -62,7 +64,10 @@ export const Post = ({
       <div className={styles.wrapper}>
         <UserInfo {...user} additionalText={createdAt} />
         <div className={styles.indention}>
-          <h2 className={clsx(styles.title, { [styles.titleFull]: isFullPost })}>
+          <h2
+            className={clsx(styles.title, { [styles.titleFull]: isFullPost })}
+          >
+            {/* eslint-disable-next-line no-undef */}
             {isFullPost ? title : <Link to={`/posts/${id}`}>{title}</Link>}
           </h2>
           <ul className={styles.tags}>
